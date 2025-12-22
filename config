@@ -1,3 +1,0 @@
-[profile terraform_user]
-region = us-east-1
-output = json
