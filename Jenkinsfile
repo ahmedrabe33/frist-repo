@@ -6,7 +6,7 @@ node{
 
     }
     catch(Eexception e){
-        sh'echo "eception found"'
+        sh'echo "Exception found"'
         throw e
     }
     }
