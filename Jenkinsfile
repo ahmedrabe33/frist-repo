@@ -1,17 +1,18 @@
+node {
+    git branch: 'main', url: 'https://github.com/ahmedrabe33/frist-repo.git'
 
-
-node{
-    git branch: 'main' , url 'https://github.com/ahmedrabe33/frist-repo.git'
-    stage('build'){
+    stage('Build') {
         try {
             sh 'echo "build"'
-         } catch (Exception e) {
-            sh 'echo "build faild"'
+        } catch (Exception e) {
+            sh 'echo "build failed"'
+            error("Stopping pipeline because build failed")
         }
-
     }
+
     stage('Print Branch') {
         // اطبع اسم الفرع الحالي
-        echo "Current branch is: ${env.BRANCH_NAME}"
-}
+        def branchName = sh(script: 'git rev-parse --abbrev-ref HEAD', returnStdout: true).trim()
+        echo "Current branch is: ${branchName}"
+    }
 }
