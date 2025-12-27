@@ -17,4 +17,5 @@ node {
            sh 'echo "skip test stage"'
 
     }
+    }
 } 
