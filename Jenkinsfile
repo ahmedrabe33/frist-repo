@@ -3,9 +3,9 @@
 node{
     git branch: 'main' , url 'https://github.com/ahmedrabe33/frist-repo.git'
     stage('build'){
-        try [
+        try {
             sh 'echo "build"'
-        ] catch (Exception e) {
+         } catch (Exception e) {
             sh 'echo "build faild"'
         }
 
