@@ -1,21 +1,20 @@
-node{
-    git branch: 'main' , url: 'https://github.com/ahmedrabe33/frist-repo.git'
-    stage('build'){
-        try{
-        sh'echo "build stage"'
+node {
+    git branch: 'main', url: 'https://github.com/ahmedrabe33/frist-repo.git'
 
-    }
-    catch(Eexception e){
-        sh'echo "Exception found"'
-        throw e
-    }
-    }
-    stage('test'){
-        if (env.BRANCH_NAME == "feat"){
-            sh'echo "test stage"'
+    stage('build') {
+        try {
+            sh 'echo "build stage"'
+        } catch (Exception e) {   // صححت الاسم هنا
+            sh 'echo "Exception found"'
+            throw e
         }
-        else{
-            sh'echo "skip test stage"'
+    }
+
+    stage('test') {
+        if (env.BRANCH_NAME == "feat") {
+            sh 'echo "test stage"'
+        } else {
+            sh 'echo "skip test stage"'
         }
     }
 }
