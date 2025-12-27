@@ -10,9 +10,11 @@ node {
         }
     }
 
-    stage('Print Branch') {
-        // اطبع اسم الفرع الحالي
-        def branchName = sh(script: 'git rev-parse --abbrev-ref HEAD', returnStdout: true).trim()
-        echo "Current branch is: ${branchName}"
+    stage('test'){
+        if (env.BRANCH_NAME == "main"){
+           sh 'echo "test stage"' }
+        else {
+           sh 'echo "skip test stage"'
+
     }
-}
+} 
